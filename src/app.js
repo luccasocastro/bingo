@@ -9,6 +9,18 @@ import {
 
 const STORAGE_KEY = 'bingo-web-state';
 const CHANNEL_NAME = 'bingo-web-sync';
+const PRESENTATION_LOGOS = [
+  {
+    src: new URL('./imgs/festejo_logo.png', import.meta.url).href,
+    alt: 'Logo do festejo',
+    className: 'presentation-logo presentation-logo-left',
+  },
+  {
+    src: new URL('./imgs/paroquia_logo.png', import.meta.url).href,
+    alt: 'Logo da paroquia',
+    className: 'presentation-logo presentation-logo-right',
+  },
+];
 
 const app = document.querySelector('#app');
 const isPresentation = new URLSearchParams(window.location.search).has('present');
@@ -65,6 +77,24 @@ function render() {
 
   page.append(header, createGrid(), createRecentMarked());
   app.append(page);
+
+  if (isPresentation) {
+    app.append(createPresentationLogos());
+  }
+}
+
+function createPresentationLogos() {
+  const fragment = document.createDocumentFragment();
+
+  PRESENTATION_LOGOS.forEach((logo) => {
+    const image = document.createElement('img');
+    image.className = logo.className;
+    image.src = logo.src;
+    image.alt = logo.alt;
+    fragment.append(image);
+  });
+
+  return fragment;
 }
 
 function createControls() {

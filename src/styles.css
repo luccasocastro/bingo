@@ -1,15 +1,15 @@
 :root {
   color-scheme: light;
-  --background: #f7f9fc;
+  --background: #ffffff;
   --surface: #ffffff;
-  --text: #172033;
-  --muted: #5b6578;
-  --border: #d6dce8;
-  --primary: #1769e0;
-  --primary-strong: #0e4fb0;
-  --marked: #18a058;
-  --marked-text: #ffffff;
-  --shadow: 0 14px 40px rgba(23, 32, 51, 0.12);
+  --text: #58290d;
+  --muted: #4e4e4e;
+  --border: #bfd076;
+  --primary: #d17609;
+  --primary-strong: #58290d;
+  --marked: #bfd076;
+  --marked-text: #58290d;
+  --shadow: 0 14px 40px rgba(88, 41, 13, 0.12);
 }
 
 * {
@@ -39,7 +39,7 @@ input {
   width: min(1480px, calc(100% - 32px));
   min-height: 100vh;
   margin: 0 auto;
-  padding: 28px 0;
+  padding: 28px 0 130px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -92,7 +92,7 @@ h1 {
 
 .title-control input:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(23, 105, 224, 0.16);
+  box-shadow: 0 0 0 3px rgba(209, 118, 9, 0.18);
 }
 
 .actions {
@@ -111,7 +111,7 @@ h1 {
 }
 
 .primary-button {
-  color: #ffffff;
+  color: var(--surface);
   background: var(--primary);
 }
 
@@ -121,12 +121,12 @@ h1 {
 
 .secondary-button {
   color: var(--text);
-  background: #eef2f8;
+  background: var(--surface);
   border-color: var(--border);
 }
 
 .secondary-button:hover {
-  background: #e3e8f1;
+  background: var(--border);
 }
 
 .bingo-grid {
@@ -144,7 +144,7 @@ h1 {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(23, 32, 51, 0.08);
+  box-shadow: 0 4px 12px rgba(88, 41, 13, 0.08);
   font-size: clamp(1rem, 2.6vw, 2rem);
   font-weight: 800;
 }
@@ -207,7 +207,7 @@ button.bingo-cell:hover {
 }
 
 .presentation-mode {
-  background: #ffffff;
+  background: var(--background);
 }
 
 .presentation-mode .app-header {
@@ -239,6 +239,23 @@ button.bingo-cell:hover {
   font-size: clamp(2rem, 5vw, 5rem);
 }
 
+.presentation-logo {
+  position: fixed;
+  bottom: 18px;
+  width: clamp(203px, 23.7vw, 372px);
+  height: auto;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.presentation-logo-left {
+  left: 22px;
+}
+
+.presentation-logo-right {
+  right: 22px;
+}
+
 @media (max-width: 860px) {
   .bingo-grid {
     grid-template-columns: repeat(10, minmax(0, 1fr));
@@ -265,8 +282,25 @@ button.bingo-cell:hover {
     width: min(100% - 20px, 1120px);
   }
 
+  .presentation-page {
+    padding-bottom: 100px;
+  }
+
   .bingo-grid {
     grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 6px;
+  }
+
+  .presentation-logo {
+    bottom: 12px;
+    width: clamp(139px, 40.6vw, 203px);
+  }
+
+  .presentation-logo-left {
+    left: 10px;
+  }
+
+  .presentation-logo-right {
+    right: 10px;
   }
 }
