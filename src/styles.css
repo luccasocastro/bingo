@@ -132,21 +132,25 @@ h1 {
 .bingo-grid {
   display: grid;
   grid-template-columns: repeat(15, minmax(0, 1fr));
-  gap: 8px;
+  gap: 10px;
 }
 
 .bingo-cell {
   aspect-ratio: 1;
   display: grid;
   place-items: center;
+  width: 100%;
   min-width: 0;
+  padding: 0;
+  overflow: hidden;
   color: var(--text);
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(88, 41, 13, 0.08);
-  font-size: clamp(1rem, 2.6vw, 2rem);
+  font-size: clamp(1rem, 2.2vw, 1.75rem);
   font-weight: 800;
+  line-height: 1;
 }
 
 button.bingo-cell {
@@ -215,11 +219,11 @@ button.bingo-cell:hover {
 }
 
 .presentation-mode .bingo-grid {
-  gap: 10px;
+  gap: 16px;
 }
 
 .presentation-mode .bingo-cell {
-  font-size: clamp(1.6rem, 4.8vw, 4.8rem);
+  font-size: clamp(1.4rem, 3.8vw, 3.8rem);
   box-shadow: none;
 }
 
@@ -288,7 +292,7 @@ button.bingo-cell:hover {
 
   .bingo-grid {
     grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 6px;
+    gap: 8px;
   }
 
   .presentation-logo {
